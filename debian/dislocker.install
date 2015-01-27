@@ -1,0 +1,8 @@
+usr/bin/dislocker-fuse
+usr/bin/dislocker-file
+usr/bin/dislocker-metadata
+usr/bin/dislocker-bek
+usr/bin/dislocker
+usr/share/man/man1/dislocker-fuse.1.gz
+usr/share/man/man1/dislocker-file.1.gz
+usr/share/man/man1/dislocker.1.gz

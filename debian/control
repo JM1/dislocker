@@ -1,0 +1,36 @@
+Source: dislocker
+Section: utils
+Priority: optional
+Maintainer: Jakob Meng <jakobmeng@web.de>
+Build-Depends: debhelper (>= 9), libfuse-dev (>= 2.6), libpolarssl-dev
+Standards-Version: 3.9.6
+Homepage: https://github.com/Aorimn/dislocker
+Vcs-Git: https://github.com/Aorimn/dislocker.git
+Vcs-Browser: https://github.com/Aorimn/dislocker/tree/develop
+
+Package: libdislocker0
+Section: libs
+Architecture: any
+Multi-Arch: no
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, fuse [linux-any] | fuse4bsd [kfreebsd-any]
+Description: FUSE driver to read/write Windows' BitLocker-ed volumes under Linux / Mac OSX
+ This software has been designed to read BitLocker encrypted partitions under a
+ Linux system. The driver used to only read volumes encrypted under a Windows 7
+ system but see now its capabilities extended to:
+  - Windows Vista, 7 and 8 encrypted partitions;
+  - BitLocker-To-Go encrypted partitions - that's USB/FAT32 partitions;
+  - be able to write on the above partitions.
+
+Package: dislocker
+Section: utils
+Architecture: any
+Multi-Arch: foreign
+Depends: ${shlibs:Depends}, ${misc:Depends}, libdislocker0 (= ${binary:Version})
+Description: FUSE driver to read/write Windows' BitLocker-ed volumes under Linux / Mac OSX
+ This software has been designed to read BitLocker encrypted partitions under a
+ Linux system. The driver used to only read volumes encrypted under a Windows 7
+ system but see now its capabilities extended to:
+  - Windows Vista, 7 and 8 encrypted partitions;
+  - BitLocker-To-Go encrypted partitions - that's USB/FAT32 partitions;
+  - be able to write on the above partitions.

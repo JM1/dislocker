@@ -1,0 +1,16 @@
+# Keep track of files that don't get installed
+# Src: original file taken from debian source package "mesa"
+
+# Common list:
+NOT_INSTALLED := \
+	usr/lib/libdislocker.so
+
+# Architecture-specific additional files:
+#NOT_INSTALLED_i386 = \
+#	usr/lib/*/i686/cmov/libGL.so \
+#
+#NOT_INSTALLED_kfreebsd-i386 = $(NOT_INSTALLED_i386)
+
+# Detect the current architecture and add the files if any:
+DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
+NOT_INSTALLED += $(NOT_INSTALLED_$(DEB_HOST_ARCH))
