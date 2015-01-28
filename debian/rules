@@ -7,9 +7,13 @@ DH_VERBOSE = 1
 DPKG_EXPORT_BUILDFLAGS = 1
 
 # see FEATURE AREAS in dpkg-buildflags(1)
-#export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 #export DEB_BUILD_MAINT_OPTIONS = hardening=-all,+pie,+fortify,+stackprotector,+relro,+bindnow,+format
-export DEB_BUILD_MAINT_OPTIONS = hardening=+all,-pie
+#export DEB_BUILD_MAINT_OPTIONS = hardening=+all,-pie
+
+# do not use default hardening flags from Makefile
+export LHARDEN=
+export CHARDEN=
 
 include /usr/share/dpkg/default.mk
 
