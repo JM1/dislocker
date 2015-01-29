@@ -11,9 +11,7 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 #export DEB_BUILD_MAINT_OPTIONS = hardening=-all,+pie,+fortify,+stackprotector,+relro,+bindnow,+format
 #export DEB_BUILD_MAINT_OPTIONS = hardening=+all,-pie
 
-# do not use default hardening flags from Makefile
-export LHARDEN=
-export CHARDEN=
+#export DEB_CFLAGS_MAINT_APPEND  = -fPIC
 
 include /usr/share/dpkg/default.mk
 
@@ -28,6 +26,9 @@ include debian/not-installed
 # main packaging script based on dh7 syntax
 %:
 	dh $@ --sourcedirectory=src --buildsystem=makefile
+
+#override_dh_auto_build:
+#	dh_auto_build -- LHARDEN="" CHARDEN=""
 
 override_dh_auto_install:
 	mkdir -p debian/tmp/usr/bin
