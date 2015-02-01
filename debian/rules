@@ -7,9 +7,9 @@ DH_VERBOSE = 1
 DPKG_EXPORT_BUILDFLAGS = 1
 
 # see FEATURE AREAS in dpkg-buildflags(1)
-export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+#export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 #export DEB_BUILD_MAINT_OPTIONS = hardening=-all,+pie,+fortify,+stackprotector,+relro,+bindnow,+format
-#export DEB_BUILD_MAINT_OPTIONS = hardening=+all,-pie
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all,-pie
 
 #export DEB_CFLAGS_MAINT_APPEND  = -fPIC
 
